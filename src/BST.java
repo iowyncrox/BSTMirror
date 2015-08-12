@@ -77,7 +77,6 @@ public class BST<T extends Comparable<T>> {
 		} else {
 
 			Node<T> temp = currentPointer.left;
-
 			currentPointer.left = currentPointer.right;
 			currentPointer.right = temp;
 
