@@ -74,16 +74,19 @@ public class BST<T extends Comparable<T>> {
 		if (currentPointer == null
 				|| (currentPointer.left == null && currentPointer.right == null)) {
 			return currentPointer;
+		} else {
+
+			Node<T> temp = currentPointer.left;
+
+			currentPointer.left = currentPointer.right;
+			currentPointer.right = temp;
+
+			mirrorHelper(currentPointer.left);
+			mirrorHelper(currentPointer.right);
+
 		}
-
-		Node<T> temp = currentPointer.left;
-		currentPointer.left = currentPointer.right;
-		currentPointer.right = temp;
-
-		mirrorHelper(currentPointer.left);
-		mirrorHelper(currentPointer.right);
-
 		return currentPointer;
+
 	}
 
 	public static void main(String[] args) {
